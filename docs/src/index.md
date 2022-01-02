@@ -3,7 +3,7 @@
 One can use JSServe and WGLMakie in Pluto, IJulia, Webpages - and Documenter!
 It's possible to create interactive apps and dashboards, serve them on live webpages, or export them to static HTML.
 
-This tutorial will run through the different modes and what kind of limitations to expect.
+TESTINGGGGGG
 
 First, one should use the new Page mode for anything that displays multiple outputs, like Pluto/IJulia/Documenter.
 This creates a single entry point, to connect to the Julia process and load dependencies.
