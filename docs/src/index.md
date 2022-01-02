@@ -313,5 +313,32 @@ set_theme!(resolution=(800, 400))
 struc = retrievepdb("2vb1")
 atms = collectatoms(struc, standardselector)
 cords = coordarray(atms) |> transpose |> collect
-meshscatter(cords)
+meshscatter(cords, show_axis=false, markersize=1, color=:blue)
+```
+
+```@example 1
+using WGLMakie
+WGLMakie.activate!()
+set_theme!(resolution=(800, 600))
+g = smallgraph(:dodecahedral)
+graphplot(g, layout=Spring(dim=3), node_size=100)
+```
+
+```@example 1
+using WGLMakie
+WGLMakie.activate!()
+set_theme!(resolution=(800, 600))
+g = smallgraph(:cubical)
+elabels_shift = [0.5 for i in 1:ne(g)]
+elabels_shift[[2,7,8,9]] .= 0.3
+elabels_shift[10] = 0.25
+graphplot(g; layout=Spring(dim=3, seed=5),
+          elabels="Edge ".*repr.(1:ne(g)),
+          elabels_textsize=12,
+          elabels_opposite=[3,5,7,8,12],
+          elabels_shift,
+          elabels_distance=3,
+          arrow_show=true,
+          arrow_shift=0.9,
+          arrow_size=15)
 ```
