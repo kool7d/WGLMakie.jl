@@ -307,7 +307,7 @@ Hopefully, over time there will be helper libraries with lots of stylised elemen
 Safari users may need to [enable](https://discussions.apple.com/thread/8655829) WebGL.
 
 ```@example 1
-using WGLMakie, BioStructures
+using BioStructures
 # Set the default resolution to something that fits the Documenter theme
 set_theme!(resolution=(800, 400))
 struc = retrievepdb("2vb1")
@@ -317,10 +317,8 @@ meshscatter(cords, show_axis=false, markersize=1, color=:blue)
 ```
 
 ```@example 1
-using WGLMakie, CairoMakie
 using Graphs, GraphMakie
-using NetworkLayout
-using NetworkLayout: Spring
+using GraphMakie.NetworkLayout
 WGLMakie.activate!()
 set_theme!(resolution=(800, 600))
 g = smallgraph(:dodecahedral)
@@ -328,9 +326,6 @@ graphplot(g, layout=Spring(dim=3), node_size=100)
 ```
 
 ```@example 1
-using WGLMakie
-WGLMakie.activate!()
-set_theme!(resolution=(800, 600))
 g = smallgraph(:cubical)
 elabels_shift = [0.5 for i in 1:ne(g)]
 elabels_shift[[2,7,8,9]] .= 0.3
