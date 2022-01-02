@@ -317,12 +317,23 @@ meshscatter(cords, show_axis=false, markersize=1, color=:blue)
 ```
 
 ```@example 1
-using Graphs, GraphMakie
-using NetworkLayout
-using NetworkLayout: Spring
+using GraphMakie
+using Documenter
+using Literate
+using CairoMakie
+using JSServe
+using NetworkDynamics
+using LayeredLayouts
+using Graphs
+using PkgDeps
+using GraphMakie.NetworkLayout
+
 WGLMakie.activate!()
 set_theme!(resolution=(800, 600))
 g = smallgraph(:dodecahedral)
+```
+
+```@example 1
 lay = Spring(dim=3)
 graphplot(g, layout=lay, node_size=100)
 ```
@@ -342,4 +353,11 @@ graphplot(g; layout=lay,
           arrow_show=true,
           arrow_shift=0.9,
           arrow_size=15)
+```
+
+```@example 1
+g = smallgraph(:cubical)
+elabels_shift = [0.5 for i in 1:ne(g)]
+elabels_shift[[2,7,8,9]] .= 0.3
+elabels_shift[10] = 0.25
 ```
