@@ -305,3 +305,13 @@ Hopefully, over time there will be helper libraries with lots of stylised elemen
 ## Plots don't display in Safari
 
 Safari users may need to [enable](https://discussions.apple.com/thread/8655829) WebGL.
+
+```@example 1
+using WGLMakie, BioStructures
+# Set the default resolution to something that fits the Documenter theme
+set_theme!(resolution=(800, 400))
+struc = retrievepdb("2vb1")
+atms = collectatoms(struc, standardselector)
+cords = coordarray(atms) |> transpose |> collect
+meshscatter(cords)
+```
