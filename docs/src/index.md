@@ -317,24 +317,24 @@ meshscatter(cords, show_axis=false, markersize=1, color=:blue)
 ```
 
 ```@example 1
-using WGLMakie
+using WGLMakie, CairoMakie
 using Graphs, GraphMakie
 using NetworkLayout
 WGLMakie.activate!()
 set_theme!(resolution=(800, 600))
-g = Graphs.smallgraph(:dodecahedral)
-graphplot(g, layout=NetworkLayout.Spring(dim=3), node_size=100)
+g = smallgraph(:dodecahedral)
+graphplot(g, layout=Spring(dim=3), node_size=100)
 ```
 
 ```@example 1
 using WGLMakie
 WGLMakie.activate!()
 set_theme!(resolution=(800, 600))
-g = Graphs.smallgraph(:cubical)
+g = smallgraph(:cubical)
 elabels_shift = [0.5 for i in 1:ne(g)]
 elabels_shift[[2,7,8,9]] .= 0.3
 elabels_shift[10] = 0.25
-graphplot(g; layout=NetworkLayout.Spring(dim=3, seed=5),
+graphplot(g; layout=Spring(dim=3, seed=5),
           elabels="Edge ".*repr.(1:ne(g)),
           elabels_textsize=12,
           elabels_opposite=[3,5,7,8,12],
