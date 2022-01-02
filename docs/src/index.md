@@ -318,9 +318,10 @@ meshscatter(cords, show_axis=false, markersize=1, color=:blue)
 
 ```@example 1
 using WGLMakie
+using Graphs, GraphMakie
 WGLMakie.activate!()
 set_theme!(resolution=(800, 600))
-g = smallgraph(:dodecahedral)
+g = Graphs.smallgraph(:dodecahedral)
 graphplot(g, layout=Spring(dim=3), node_size=100)
 ```
 
@@ -328,7 +329,7 @@ graphplot(g, layout=Spring(dim=3), node_size=100)
 using WGLMakie
 WGLMakie.activate!()
 set_theme!(resolution=(800, 600))
-g = smallgraph(:cubical)
+g = Graphs.smallgraph(:cubical)
 elabels_shift = [0.5 for i in 1:ne(g)]
 elabels_shift[[2,7,8,9]] .= 0.3
 elabels_shift[10] = 0.25
