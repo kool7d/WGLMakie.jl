@@ -320,6 +320,7 @@ meshscatter(cords, show_axis=false, markersize=1, color=:blue)
 using WGLMakie, CairoMakie
 using Graphs, GraphMakie
 using NetworkLayout
+using NetworkLayout: Spring
 WGLMakie.activate!()
 set_theme!(resolution=(800, 600))
 g = smallgraph(:dodecahedral)
