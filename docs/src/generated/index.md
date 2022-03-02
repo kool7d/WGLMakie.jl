@@ -231,7 +231,7 @@ waypoint_radius = Dict(1 => nothing,
                        4 => 0.15)
 
 f = Figure(); f[1,1] = ax = Axis(f)
-using Makie.Colors # hide
+using Colors # hide
 for i in 3:4 #hide
     poly!(ax, Circle(Point2f(waypoints[i][1]), waypoint_radius[i]), color=RGBA(0.0,0.44705883,0.69803923,0.2)) #hide
     poly!(ax, Circle(Point2f(waypoints[i][2]), waypoint_radius[i]), color=RGBA(0.0,0.44705883,0.69803923,0.2)) #hide
@@ -288,6 +288,12 @@ set_theme!(resolution=(800, 600))
 g = smallgraph(:dodecahedral)
 graphplot(g, layout=Spring(dim=3), node_size=100)
 ````
+
+OUTPUT = joinpath(@__DIR__, "src", "generated")
+isdir(OUTPUT) && rm(OUTPUT, recursive=true)
+mkpath(OUTPUT)
+
+Literate.markdown("C:\\Users\\kool7\\Google Drive\\WGLMakie.jl\\docs\\index.jl", OUTPUT)
 
 ---
 
